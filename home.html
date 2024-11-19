@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLE University - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li class="active"><a href="home.html">Home</a></li>
+      <li><a href="#reports">Reports</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="dashboard">
+    <!-- Profile Section -->
+    <section class="profile">
+      <img src="faculty.webp" alt="Profile Picture" class="profile-picture">
+      <h2>John Doe</h2>
+      <p><strong>Designation:</strong> Course Coordinator</p>
+      <p><strong>Email:</strong> john.doe@kle.edu</p>
+      <p><strong>Phone:</strong> +91-9876543210</p>
+    </section>
+
+    <!-- Student Overview Section -->
+    <section class="overview">
+      <h3>Student Overview</h3>
+      <p><strong>Total Strength:</strong> 250</p>
+      <p><strong>Divisions Assigned:</strong> 5</p>
+    </section>
+
+    <!-- Attendance Section -->
+    <section class="attendance">
+      <h3>Attendance Overview</h3>
+      <label for="attendance-date">Select Date:</label>
+      <input type="date" id="attendance-date" value="2024-11-12">
+      <h4>Last Class Overall Attendance</h4>
+      <p><strong>80%</strong> (Total: 200/250)</p>
+      <h4>Division-wise Attendance:</h4>
+      <ul>
+        <li><strong>Division A:</strong> 85%</li>
+        <li><strong>Division B:</strong> 78%</li>
+        <li><strong>Division C:</strong> 82%</li>
+        <li><strong>Division D:</strong> 75%</li>
+        <li><strong>Division E:</strong> 88%</li>
+      </ul>
+    </section>
+
+    <!-- Trend Section -->
+    <section class="trend">
+      <h3>Attendance Trend (Last 10 Days)</h3>
+      <div class="powerbi-container">
+        <img src="trend.jpg" alt="Attendance Trend (Last 10 Days)" style="width: 100%; height: auto;">
+      </div>
+    </section>
+     
+
+    <!-- Messages Section -->
+    <section class="messages">
+      <h3>Personalized Messages</h3>
+      <form action="#">
+        <label for="message">Send a Message:</label>
+        <textarea id="message" rows="3" placeholder="Type your message here..."></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <h4>Message History</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Message</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Faculty A</td>
+            <td>Todays' attendance is due</td>
+            <td>2024-11-11</td>
+          </tr>
+          <tr>
+            <td>Faculty B</td>
+            <td>Please submit the necessary changes.</td>
+            <td>2024-11-10</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

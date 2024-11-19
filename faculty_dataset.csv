@@ -1,0 +1,6 @@
+Faculty_Name,Faculty_ID,Email,Password,Division_Taught,Is_Course_Coordinator,Course_Code,Designation
+Dr. Ramesh Sharma,FAC-512,ramesh@university.edu,password123,C,Yes,INF-519,Assistant Professor
+Prof. Aditi Verma,FAC-255,aditi@university.edu,password123,C,Yes,INF-519,Professor
+Dr. Vikram Patel,FAC-583,vikram@university.edu,password123,A,No,N/A,Assistant Professor
+Prof. Neha Reddy,FAC-378,neha@university.edu,password123,D,Yes,MEC-427,Associate Professor
+Dr. Priya Gupta,FAC-451,priya@university.edu,password123,C,Yes,INF-519,Lecturer

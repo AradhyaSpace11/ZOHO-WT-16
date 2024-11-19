@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Course Coordinator Login - KLE Technological University</title>
+</head>
+<body>
+  <header class="header">
+    <img src="kle logo.png" alt="KLE Technological University Logo" class="header-logo">
+    <h1 class="header-title">KLE Technological University, Hubballi</h1>
+  </header>
+
+  <main class="content">
+    <section class="welcome-section">
+      <h2 class="welcome-title">Welcome to KLE TECH</h2>
+      <p class="welcome-text">
+        KLE Technological University (KLE Tech) has its roots in B. V. Bhoomaraddi College of Engineering and Technology, Hubli (BVB), one of the premier engineering institutions of Karnataka. The founding organization KLE Society, Belgaum, established BVB College in 1947 with an aspiration of creating an institution that would lay the foundation of modern engineering education in the northern region of Karnataka.
+      </p>
+    </section>
+
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Course Coordinator Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+          </div>
+          <div class="form-group">
+            <label for="captcha">Captcha</label>
+            <div class="captcha-container">
+              <span class="captcha-code" id="captchaCode">AB12CD</span>
+            </div>
+            <input type="text" id="captcha" name="captcha" placeholder="Enter captcha" required>
+          </div>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+        <p id="errorMessage" style="color: red; display: none;">Invalid login credentials or CAPTCHA. Please try again.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 KLE Technological University, Hubballi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Faculty data (simulated from the CSV file)
+    const facultyData = [
+      { email: "ramesh@university.edu", password: "password123" },
+      { email: "aditi@university.edu", password: "password123" },
+      { email: "vikram@university.edu", password: "password123" },
+      { email: "neha@university.edu", password: "password123" },
+      { email: "priya@university.edu", password: "password123" }
+    ];
+
+    // CAPTCHA code
+    const correctCaptcha = "AB12CD";
+
+    // Login form validation
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const captcha = document.getElementById('captcha').value.trim();
+
+      // Validate CAPTCHA
+      if (captcha !== correctCaptcha) {
+        document.getElementById('errorMessage').textContent = "Incorrect CAPTCHA. Please try again.";
+        document.getElementById('errorMessage').style.display = "block";
+        return;
+      }
+
+      // Validate email and password
+      const user = facultyData.find(user => user.email === email && user.password === password);
+
+      if (user) {
+        // Redirect to the home page
+        window.location.href = "home.html";
+      } else {
+        // Show error message
+        document.getElementById('errorMessage').textContent = "Invalid login credentials. Please try again.";
+        document.getElementById('errorMessage').style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
