@@ -459,3 +459,10 @@ table tr:nth-child(even) {
     height: 300px; /* Adjust height for smaller screens */
   }
 }
+
+/* Add this new class for the card container */
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Adjusts space between cards */
+  margin: 20px 0; /* Optional: Adds margin around the card container */
+}
