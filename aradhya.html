@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="aradhyacss.css">
 </head>
 <body>
-  <video autoplay muted loop id="bg-video">
+  <!-- <video autoplay muted loop id="bg-video">
     <source src="bgvid.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    Your browser does not support the video tag. -->
   </video>
   <header class="header">
     <img src="logo.png" alt="KLE Technological University Logo" class="header-logo">
@@ -20,7 +20,7 @@
           <div class="profile-details-box">
             <h2>John Doe</h2>
             <p><strong>Designation:</strong> Course Coordinator</p>
-            <p><strong>Email:</strong> john.doe@kle.edu</p>
+            <p><strong>Email:</strong> name1@kle.edu</p>
             <p><strong>Phone:</strong> +91-9876543210</p>
             <button id="logoutbtn">logout</button>
           </div>
@@ -36,5 +36,79 @@
       </div>
     </nav>
   </header>
+  <br>
+
+  <div id = "maincontainer">
+
+
+    <div class = "canvas1" style="justify-content: center; align-items: center;">
+      <div class = "canvasin1">
+        <h1 class = "perc">Previous Day's Overall Attendance:</h1>
+        
+        <h1 class="actperc "><b>82%</b></h1>
+      </div>
+      
+      <div class = "canvasin2">
+        <h1>Previous Day's Overall Attendance:</h1>
+        <br>
+        <h1><b>82%</b></h1>
+      </div>
+    </div>
+
+    <div class="canvas2">
+      <h2>LOL</h2>
+      <canvas id="barGraph" width="400" height="300" style="image-rendering: pixelated;"></canvas>
+    </div>
+    <script>
+      const canvas = document.getElementById('barGraph');
+      const ctx = canvas.getContext('2d');
+      const bars = 10;
+      const barWidth = Math.floor(canvas.width / bars);
+      const heights = Array.from({ length: bars }, () => Math.random() * (canvas.height - 20));
+
+      function getColor(height) {
+        const percentage = height / (canvas.height - 20);
+        const red = Math.floor(255 * (1 - percentage));
+        const green = Math.floor(255 * percentage);
+        return `rgb(${red}, ${green}, 0)`;
+      }
+
+      function drawBars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < bars; i++) {
+          ctx.fillStyle = getColor(heights[i]);
+          ctx.fillRect(i * barWidth + 5, canvas.height - heights[i], barWidth - 10, heights[i]);
+        }
+      }
+
+      function animateBars() {
+        let currentHeights = Array(bars).fill(0);
+        const animationDuration = 2000;
+        const startTime = performance.now();
+
+        function animate(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / animationDuration, 1);
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < bars; i++) {
+            currentHeights[i] = heights[i] * progress;
+            ctx.fillStyle = getColor(currentHeights[i]);
+            ctx.fillRect(i * barWidth + 5, canvas.height - currentHeights[i], barWidth - 10, currentHeights[i]);
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      drawBars();
+      animateBars();
+    </script>
+
+  </div>
 </body>
   </html>
