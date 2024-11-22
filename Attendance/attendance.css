@@ -6,6 +6,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: #722121;
 }
 
 /* Style for the background video */
@@ -54,7 +55,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    background-color: rgb(69, 8, 8);
+    background-color: rgb(0, 0, 0);
     border-radius: 150px;
     padding: 10px 20px;
     margin-top: 10px;
@@ -236,3 +237,34 @@ nav ul li.active a {
 .attendance-box:hover .attendance-info {
     display: block; /* Show on hover */
 }
+
+.graphandfiltersort {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .graph {
+    width: 70%; /* Adjust width as needed */
+    height: 400px; /* Set a fixed height for the graph box */
+    background-color: #021303; /* Light gray background */
+    border: 1px solid #000000; /* Subtle border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .filtersort {
+    width: 30%; /* Adjust width as needed */
+    background-color: #021303; /* White background for filters and sort */
+    border: 1px solid #000000; /* Border matching the graph */
+    border-radius: 12px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+  }
+  
