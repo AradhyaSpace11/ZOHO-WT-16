@@ -1,116 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>KLE University - Dashboard</title>
-  <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Coordinator's Dashboard</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <!-- <video autoplay muted loop id="bg-video">
-    <source src="bgvid.mp4" type="video/mp4">
-    Your browser does not support the video tag. -->
-  </video>
-  <header class="header">
-    <img src="../Media/logo.png" alt="KLE Technological University Logo" class="header-logo">
-    <nav>
-
-      <div class="nav-right">
-        <ul>
-          <li class="active"><a href="aradhya.html">Home</a></li>
-          <li><a href="#reports">Attendance</a></li>
-          <li><a href="#feedback">Performance</a></li>
-          <li><a href="index.html" style="margin-right: 20px;">Feedback</a></li>
-        </ul>
-      </div>
-      <div class="nav-left">
-        <li class="profile-button">
-          <img src="../Media/faculty.webp" alt="Profile Picture" class="profile-image">
-          <div class="profile-details-box">
-            <h2>John Doe</h2>
-            <p><strong>Designation:</strong> Course Coordinator</p>
-            <p><strong>Email:</strong> name1@kle.edu</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
-            <button id="logoutbtn" >logout</button>
+    <header class="header">
+        <img src="../Media/logo.png" alt="KLE Technological University Logo" class="header-logo">
+        <nav>
+    
+          <div class="nav-right">
+            <ul>
+              <li class="active"><a href="aradhya.html">Home</a></li>
+              <li><a href="#Attendance">Attendance</a></li>
+              <li><a href="#feedback">Performance</a></li>
+              <li><a href="index.html" style="margin-right: 20px;">Feedback</a></li>
+            </ul>
           </div>
-        </li>
-      </div>
-      
-    </nav>
-  </header>
-  <br>
+          <div class="nav-left">
+            <li class="profile-button">
+              <img src="../Media/faculty.webp" alt="Profile Picture" class="profile-image">
+              <div class="profile-details-box">
+                <h2 style="color: black;">Paneer Glower</h2>
+                <p style="color: black;"><strong>Designation:</strong> Course Coordinator</p>
+                <p style="color: black;"><strong>Email:</strong> paneer@kle.edu</p>
+                <p style="color: black;"><strong>Phone:</strong> +69-4209669420</p>
+                <button id="logoutbtn" >logout</button>
+              </div>
+            </li>
+          </div>
+          
+        </nav>
+      </header>
+      <main>
 
-  <div id = "maincontainer">
+        <section class="graph">
+            <div class="graph-container">
+                <div class="square-card">
+                    <div class="incard1 incard">
+                        <h2 style="color: rgb(255, 255, 255); text-align: center; margin-right: 15px">
+                            OVERALL ATTENDANCE:
+                        </h2>
+                        <canvas id="overallAttendanceChart" width="30" height="30" style="margin: 0 auto; display: block; margin-right: 15px"></canvas>
+                    </div>
+                 
+                    <div class="incard2 incard">
+                        <h2 style="color: rgb(255, 255, 255); text-align: center;">
+                            YESTERDAY'S ATTENDANCE:
+                        </h2>
+                        <canvas id="previousAttendanceChart" width="30" height="30" style="margin: 0px auto; display: block;"></canvas>
+                    </div>
+                </div>
+                <canvas id="attendanceChart"></canvas>
+            </div>
+        </section>
+        <section class="filtersort">
+            <div class="filter-container">
+                <h3>Messages</h3>
+                <div class="filter-options">
+                    <!-- Filter Type -->
+                    <div class="sendto">
+                        <label for="inbox">INBOX</label>
+                        <div class="inbox">
+                        </div>
+                    </div>
+                    
+                    <!-- Sort Order -->
+                    <div class="sendto">
+                        <label for="sortOrder">Send To</label>
+                        <select id="sortOrder" class="filter-select">
+                            <option value="high">Professor Penguin</option>
+                            <option value="low">Mr Cat</option>
+                            <option value="low">Gilgamesh</option>
+                            <option value="low">Megatron</option>
+                            <option value="low">Paneer Lover</option>
+                            <option value="low">Mrs Penguin</option>
+                            <option value="low">Professor Aradhya</option>
+                        </select>
+                        <div class="messagebox">
+                          <label for="attendanceThreshold">Message:</label>
+                          <input style="width: 370px;" type="text" id="attendanceThreshold" class="filter-input" 
+                                 placeholder="Enter message" min="0" max="500">
+                        </div>
+                    </div>
 
 
-    <div class = "canvas1" style="justify-content: center; align-items: center;">
-      <div class = "canvasin1">
-        <h1 class = "perc">Previous Day's Overall Attendance:</h1>
-        
-        <h1 class="actperc "><b>82%</b></h1>
-      </div>
-      
-      <div class = "canvasin2">
-        <h1>Previous Day's Overall Attendance:</h1>
-        <br>
-        <h1><b>82%</b></h1>
-      </div>
-    </div>
+                </div>
 
-    <div class="canvas2">
-      <h2>LOL</h2>
-      <canvas id="barGraph" width="400" height="300" style="image-rendering: pixelated;"></canvas>
-    </div>
-    <script>
-      const canvas = document.getElementById('barGraph');
-      const ctx = canvas.getContext('2d');
-      const bars = 10;
-      const barWidth = Math.floor(canvas.width / bars);
-      const heights = Array.from({ length: bars }, () => Math.random() * (canvas.height - 20));
+                <!-- Buttons -->
+                <div class="filter-buttons">
+                    <button id="applyFilters" class="filter-button">Send Message</button>
+                    <button id="resetFilters" class="filter-button reset">Edit Message</button>
 
-      function getColor(height) {
-        const percentage = height / (canvas.height - 20);
-        const red = Math.floor(255 * (1 - percentage));
-        const green = Math.floor(255 * percentage);
-        return `rgb(${red}, ${green}, 0)`;
-      }
 
-      function drawBars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < bars; i++) {
-          ctx.fillStyle = getColor(heights[i]);
-          ctx.fillRect(i * barWidth + 5, canvas.height - heights[i], barWidth - 10, heights[i]);
-        }
-      }
-
-      function animateBars() {
-        let currentHeights = Array(bars).fill(0);
-        const animationDuration = 1000;
-        const startTime = performance.now();
-
-        function animate(time) {
-          const elapsed = time - startTime;
-          const progress = Math.min(elapsed / animationDuration, 1);
-
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          for (let i = 0; i < bars; i++) {
-            currentHeights[i] = heights[i] * progress;
-            ctx.fillStyle = getColor(currentHeights[i]);
-            ctx.fillRect(i * barWidth + 5, canvas.height - currentHeights[i], barWidth - 10, currentHeights[i]);
-          }
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        requestAnimationFrame(animate);
-      }
-
-      drawBars();
-      animateBars();
-    </script>
-
-  </div>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="home.js"></script>
 </body>
-  </html>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../Media/logo.png" alt="KLE Tech Logo" class="footer-logo-img">
+        </div>
+        <div class="footer-info">
+            <h3>KLE Technological University</h3>
+            <p>Green Campus, Vidyanagar, Hubballi - 580031</p>
+            <p>Karnataka, India</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://kletech.ac.in" target="_blank">University Website</a>
+            <a href="https://kletech.ac.in/contact-us" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Student Portal</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 KLE Technological University. All rights reserved.</p>
+    </div>
+</footer>
+</html>

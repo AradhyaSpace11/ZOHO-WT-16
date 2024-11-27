@@ -7,6 +7,134 @@
     <link rel="stylesheet" href="attendance.css">
 </head>
 <body>
-    <header>Software Engneering</header>
+    <header class="header">
+        <img src="../Media/logo.png" alt="KLE Technological University Logo" class="header-logo">
+        <nav>
+    
+          <div class="nav-right">
+            <ul>
+              <li><a href="aradhya.html">Home</a></li>
+              <li class="active"><a href="#Attendance">Attendance</a></li>
+              <li><a href="#feedback">Performance</a></li>
+              <li><a href="index.html" style="margin-right: 20px;">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="nav-left">
+            <li class="profile-button">
+              <img src="../Media/faculty.webp" alt="Profile Picture" class="profile-image">
+              <div class="profile-details-box">
+                <h2>John Doe</h2>
+                <p><strong>Designation:</strong> Course Coordinator</p>
+                <p><strong>Email:</strong> name1@kle.edu</p>
+                <p><strong>Phone:</strong> +91-9876543210</p>
+                <button id="logoutbtn" >logout</button>
+              </div>
+            </li>
+          </div>
+          
+        </nav>
+      </header>
+      <main>
+        <section class="divisions">
+            <div class="division-btn" data-attendance="75%" data-count="30/40">
+                Division A
+            </div>
+            <div class="division-btn" data-attendance="80%" data-count="32/40">
+                Division B
+            </div>
+            <div class="division-btn" data-attendance="70%" data-count="28/40">
+                Division C
+            </div>
+            <div class="division-btn" data-attendance="85%" data-count="34/40">
+                Division D
+            </div>
+        </section>
+        <section class="graph">
+            <div class="graph-container">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+        </section>
+        <section class="filtersort">
+            <div class="filter-container">
+                <h3>Filter & Sort Students</h3>
+                <div class="filter-options">
+                    <!-- Filter Type -->
+                    <div class="filter-group">
+                        <label for="sortBy">Filter By</label>
+                        <select id="sortBy" class="filter-select">
+                            <option value="attendance">Attendance Percentage</option>
+                            <option value="name">Student Name</option>
+                            <option value="usn">USN Number</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Sort Order -->
+                    <div class="filter-group">
+                        <label for="sortOrder">Sort Order</label>
+                        <select id="sortOrder" class="filter-select">
+                            <option value="high">Highest to Lowest</option>
+                            <option value="low">Lowest to Highest</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter Value -->
+                    <div class="filter-input-group">
+                        <label for="attendanceThreshold">Filter Value</label>
+                        <input type="number" id="attendanceThreshold" class="filter-input" 
+                               placeholder="Enter value" min="0" max="100">
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="filter-buttons">
+                    <button id="applyFilters" class="filter-button">Apply Filter</button>
+                    <button id="resetFilters" class="filter-button reset">Reset</button>
+                </div>
+            </div>
+        </section>
+      </main>
+      <section class="student-list">
+        <div class="list-container">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>USN</th>
+                        <th>Name</th>
+                        <th>Division</th>
+                        <th>Attendance %</th>
+                        <th>Classes Attended</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- Table content will be dynamically populated -->
+                </tbody>
+            </table>
+            <div id="noResults" class="no-results" style="display: none;">
+                No students match the filter criteria
+            </div>
+        </div>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="attendance.js"></script>
 </body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="path/to/kletech-logo.png" alt="KLE Tech Logo" class="footer-logo-img">
+        </div>
+        <div class="footer-info">
+            <h3>KLE Technological University</h3>
+            <p>Green Campus, Vidyanagar, Hubballi - 580031</p>
+            <p>Karnataka, India</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://kletech.ac.in" target="_blank">University Website</a>
+            <a href="https://kletech.ac.in/contact-us" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Student Portal</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 KLE Technological University. All rights reserved.</p>
+    </div>
+</footer>
 </html>
