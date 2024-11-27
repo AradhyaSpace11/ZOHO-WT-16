@@ -14,7 +14,7 @@
           <div class="nav-right">
             <ul>
               <li class="active"><a href="aradhya.html">Home</a></li>
-              <li><a href="#Attendance">Attendance</a></li>
+              <li><a href="../Attendance/attendance.html">Attendance</a></li>
               <li><a href="#feedback">Performance</a></li>
               <li><a href="index.html" style="margin-right: 20px;">Feedback</a></li>
             </ul>
@@ -36,8 +36,13 @@
       </header>
       <main>
 
-        <section class="graph">
-            <div class="graph-container">
+        <div style="text-align: center; margin-bottom:25px; margin-top: -15px">
+          <h1 style="color: rgb(5, 19, 144); font-size:35px; margin: 0px">Overview</h1>
+        </div>
+
+
+        <section class="graph" style="margin-top: -0.5px;">
+            <div class="graph-container" style="margin-top: 0px;">
                 <div class="square-card">
                     <div class="incard1 incard">
                         <h2 style="color: rgb(255, 255, 255); text-align: center; margin-right: 15px">
@@ -58,12 +63,18 @@
         </section>
         <section class="filtersort">
             <div class="filter-container">
-                <h3>Messages</h3>
+                <h3>Personal Messages</h3>
                 <div class="filter-options">
                     <!-- Filter Type -->
                     <div class="sendto">
                         <label for="inbox">INBOX</label>
                         <div class="inbox">
+                          <div class="messagecard"><span>From Professor Penguin:</span><span>&nbsp;I love ice</span></div>
+                          <div class="messagecard"><span>From Giglamesh:</span><span>&nbsp;I will consume Reality </span></div>
+                          <div class="messagecard"><span>From Mr Cat:</span><span>&nbsp;Meow</span></div>
+                          <div class="messagecard"><span>From Megatron:</span><span>&nbsp;My time has come</span></div>
+                          <div class="messagecard"><span>From Mrs Penguin:</span><span>&nbsp;wheres my fish</span></div>
+                          <div class="messagecard"><span>From Paneer Lover:</span><span>&nbsp;Paneer Glower u stole my paneer </span></div>
                         </div>
                     </div>
                     
@@ -79,9 +90,10 @@
                             <option value="low">Mrs Penguin</option>
                             <option value="low">Professor Aradhya</option>
                         </select>
+                        <br>
                         <div class="messagebox">
-                          <label for="attendanceThreshold">Message:</label>
-                          <input style="width: 370px;" type="text" id="attendanceThreshold" class="filter-input" 
+                          <label for="attendanceThreshold" style="margin-top:10px">Message:</label>
+                          <input style="width: 590px; height: 270px;" type="text" id="attendanceThreshold" class="filter-input" 
                                  placeholder="Enter message" min="0" max="500">
                         </div>
                     </div>
