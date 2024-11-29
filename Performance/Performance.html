@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Performance Dashboard</title>
     <link rel="stylesheet" href="performance.css">
+    <!-- Add Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header class="header">
@@ -12,7 +14,7 @@
         <nav>
             <div class="nav-right">
                 <ul>
-                    <li><a href="aradhya.html">Home</a></li>
+                    <li><a href="../Homepage/home.html">Home</a></li>
                     <li><a href="#reports">Attendance</a></li>
                     <li class="active"><a href="#feedback">Performance</a></li>
                     <li><a href="index.html" style="margin-right: 20px;">Feedback</a></li>
@@ -32,5 +34,251 @@
             </div>
         </nav>
     </header>
+
+    <main class="dashboard-container">
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filter-group">
+                <select id="division-select">
+                    <option value="all" selected>Overall Performance</option>
+                    <option value="A">Division A</option>
+                    <option value="B">Division B</option>
+                </select>
+                <select id="exam-select">
+                    <option value="all" selected>All Exams</option>
+                    <option value="ISA1">ISA 1</option>
+                    <option value="ISA2">ISA 2</option>
+                </select>
+                <input type="text" placeholder="Search by Student Name" id="student-search">
+                <button class="reset-btn" id="reset-filters">
+                    <i class="fas fa-undo"></i> Reset Filters
+                </button>
+            </div>
+            
+            <div class="export-group">
+                <button class="export-btn" data-format="pdf">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+                <button class="export-btn" data-format="csv">
+                    <i class="fas fa-file-csv"></i> CSV
+                </button>
+                <button class="export-btn" data-format="excel">
+                    <i class="fas fa-file-excel"></i> Excel
+                </button>
+            </div>
+        </section>
+
+        <!-- Performance Overview Section -->
+        <section class="performance-overview">
+            <div class="overview-card">
+                <h3>Class Average</h3>
+                <div class="score">15.5/20</div>
+            </div>
+            <div class="overview-card">
+                <h3>Highest Score</h3>
+                <div class="score">19/20</div>
+            </div>
+            <div class="overview-card">
+                <h3>Lowest Score</h3>
+                <div class="score">8/20</div>
+            </div>
+            <div class="overview-card">
+                <h3>Pass Percentage</h3>
+                <div class="score">85%</div>
+            </div>
+        </section>
+
+        <!-- 4. Question Analysis Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h3>Question-wise Analysis</h3>
+                <div class="question-analysis">
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <div class="question-header" onclick="toggleScoreDetails('q1-details')">
+                            <h4>Question 1</h4>
+                            <div class="attempt-summary">
+                                <span>Attempted: 85 students</span>
+                                <span>Not Attempted: 15 students</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="score-details" id="q1-details">
+                            <div class="sub-questions">
+                                <div class="sub-question">
+                                    <h5>Question 1(a)</h5>
+                                    <div class="attempt-stats">
+                                        <span>Attempted: 82 students</span>
+                                        <span>Not Attempted: 18 students</span>
+                                    </div>
+                                </div>
+                                <div class="sub-question">
+                                    <h5>Question 1(b)</h5>
+                                    <div class="attempt-stats">
+                                        <span>Attempted: 78 students</span>
+                                        <span>Not Attempted: 22 students</span>
+                                    </div>
+                                </div>
+                                <div class="sub-question">
+                                    <h5>Question 1(c)</h5>
+                                    <div class="attempt-stats">
+                                        <span>Attempted: 75 students</span>
+                                        <span>Not Attempted: 25 students</span>
+                                    </div>
+                                </div>
+                                <div class="sub-question">
+                                    <h5>Question 1(d)</h5>
+                                    <div class="attempt-stats">
+                                        <span>Attempted: 70 students</span>
+                                        <span>Not Attempted: 30 students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat similar structure for Questions 2 and 3 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Performance Graphs Section -->
+        <section class="graphs-section">
+            <div class="graph-container">
+                <h3>Division-wise Average Performance</h3>
+                <canvas id="divisionComparisonChart"></canvas>
+            </div>
+            <div class="graph-container">
+                <h3>Score Distribution</h3>
+                <div class="score-ranges">
+                    <div class="range-item">
+                        <span class="range-label">0-5 Marks:</span>
+                        <span class="range-value">15 students</span>
+                    </div>
+                    <div class="range-item">
+                        <span class="range-label">5-10 Marks:</span>
+                        <span class="range-value">25 students</span>
+                    </div>
+                    <div class="range-item">
+                        <span class="range-label">10-15 Marks:</span>
+                        <span class="range-value">35 students</span>
+                    </div>
+                    <div class="range-item">
+                        <span class="range-label">15-20 Marks:</span>
+                        <span class="range-value">25 students</span>
+                    </div>
+                </div>
+                <canvas id="scoreDistribution"></canvas>
+            </div>
+        </section>
+
+        <!-- Top and Bottom Performers Section -->
+        <section class="performers-section">
+            <div class="performers-container">
+                <!-- Top Performers -->
+                <div class="performers-card top-performers">
+                    <h3>Top 5 Performers</h3>
+                    <div class="performers-list">
+                        <div class="performer-item">
+                            <div class="rank">1</div>
+                            <div class="student-info">
+                                <span class="student-name">John Smith</span>
+                                <span class="student-score">19/20</span>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">2</div>
+                            <div class="student-info">
+                                <span class="student-name">Emma Davis</span>
+                                <span class="student-score">18.5/20</span>
+                            </div>
+                        </div>
+                        <!-- Add more top performers similarly -->
+                    </div>
+                </div>
+
+                <!-- Bottom Performers -->
+                <div class="performers-card bottom-performers">
+                    <h3>Needs Improvement</h3>
+                    <div class="performers-list">
+                        <div class="performer-item">
+                            <div class="rank">1</div>
+                            <div class="student-info">
+                                <div class="student-primary">
+                                    <span class="student-name">Alex Johnson</span>
+                                    <span class="student-score">8/20</span>
+                                </div>
+                                <div class="student-details">
+                                    <span class="student-usn">1KE20CS045</span>
+                                    <span class="student-division">Division C</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">2</div>
+                            <div class="student-info">
+                                <div class="student-primary">
+                                    <span class="student-name">Sarah Wilson</span>
+                                    <span class="student-score">8.5/20</span>
+                                </div>
+                                <div class="student-details">
+                                    <span class="student-usn">1KE20CS032</span>
+                                    <span class="student-division">Division A</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more bottom performers similarly -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../Media/logo.png" alt="KLE Tech Logo">
+        </div>
+        
+        <div class="footer-info">
+            <h3>KLE Technological University</h3>
+            <p>Empowering students through quality education and innovative learning experiences.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vidyanagar, Hubballi - 580031 Karnataka</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91-836-2378300</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@kletech.ac.in</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 KLE Technological University. All rights reserved.</p>
+    </div>
+</footer>
 </html>
