@@ -688,3 +688,5 @@ const centerTextPlugin = {
 // Create the charts with the desired percentages and colors
 createAnimatedPieChart('overallAttendanceChart', 82, 'rgb(0, 225, 30)');
 createAnimatedPieChart('previousAttendanceChart', 90, 'rgb(51, 255, 0)');
+
+  

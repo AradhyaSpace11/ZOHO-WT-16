@@ -1001,11 +1001,10 @@ nav {
     color: #ffffff;
     height: 90px;
     width: 565px;
-    border-style: inset;
-    border-color: #000000;
+    border-style: inherit;
+    border-color: #ffffff;
     border-radius: 10px;
-    background-color: #5176ee;
-    text-align: center;
+    background-color: #ad2626;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -1013,6 +1012,37 @@ nav {
     padding-left: 20px;
     z-index: 9999;
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nameimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.messagearea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #e14c4c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 10px;
+    width: 400px;
+    font-size: 20px;
+
+}
+
+.messagecard img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: #fd0000;
+    border-style: inset;
+    border-width: 4px;
+    margin-left: -4px;
 }
 
 /* Hover effect */
