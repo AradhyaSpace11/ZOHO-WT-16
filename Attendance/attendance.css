@@ -10,17 +10,17 @@ body {
 
 /* Update the color variables for better contrast */
 :root {
-    --kle-primary: #003366;      /* KLE's deep blue */
-    --kle-secondary: #004d99;    /* Lighter blue */
-    --kle-accent: #ff9900;       /* Orange accent */
-    --kle-text-dark: #1a1a1a;    /* Almost black for main text */
-    --kle-text-medium: #333333;  /* Dark gray for secondary text */
-    --kle-text-light: #ffffff;   /* White text */
-    --kle-gray: #f5f5f5;
-    --kle-border: #e0e0e0;
-    --kle-bg-light: #f8fafc;     /* Very light blue-gray for main background */
-    --kle-bg-container: #ffffff; /* White for containers */
-    --kle-bg-hover: #f0f7ff;    /* Light blue for hover states */
+    --kle-primary: #660000;       /* Deep red */
+    --kle-secondary: #990000;     /* Lighter red */
+    --kle-accent: #ff9900;        /* Orange accent */
+    --kle-text-dark: #1a1a1a;     /* Dark text */
+    --kle-text-medium: #333333;   /* Medium gray text */
+    --kle-text-light: #ffffff;    /* White text */
+    --kle-gray: #f5f5f5;          /* Light gray */
+    --kle-border: #e0e0e0;        /* Light border */
+    --kle-bg-light: #f8fafc;      /* Light background */
+    --kle-bg-container: #ffffff;  /* White container */
+    --kle-bg-hover: #f0f7ff;      /* Light blue hover */
 }
 
 /* Header and Navigation */
@@ -35,14 +35,12 @@ body {
 
 .header-logo {
     height: 45px;
-    width: auto;
     margin-right: 1rem;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
 }
 
@@ -62,7 +60,6 @@ nav {
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
     transition: all 0.3s ease;
-    white-space: nowrap;
 }
 
 .nav-right a:hover {
@@ -76,7 +73,7 @@ nav {
 /* Profile Section */
 .nav-left {
     position: relative;
-    margin-left: auto; /* Push profile to the right */
+    margin-left: auto;
 }
 
 .profile-button {
@@ -256,7 +253,7 @@ nav {
 /* Hover Effects */
 .division-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(44, 62, 152, 0.3);
+    box-shadow: 0 5px 15px rgba(152, 44, 44, 0.3);
 }
 
 .division-btn:hover::after,
@@ -276,7 +273,7 @@ nav {
 /* Active state */
 .division-btn:active {
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(44, 62, 152, 0.2);
+    box-shadow: 0 2px 8px rgba(152, 44, 44, 0.2);
 }
 
 /* Responsive Design */
@@ -551,7 +548,7 @@ nav {
 
 .filter-button:not(.reset):hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.25);
+    box-shadow: 0 6px 20px rgba(102, 0, 0, 0.25);
 }
 
 .filter-button.reset:hover {
@@ -818,8 +815,8 @@ nav {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --kle-primary: #002347;
-        --kle-secondary: #003366;
+        --kle-primary: #610808;
+        --kle-secondary: #891010;
         --kle-gray: #1a1a1a;
         --kle-text-dark: #ffffff;
         --kle-text-medium: #e0e0e0;
