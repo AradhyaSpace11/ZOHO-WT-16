@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <link rel="stylesheet" href="attendancenew.css"> <!-- Link to the updated CSS file -->
+</head>
+<body>
+    <header class="header">
+        <img src="../Media/logo.png" alt="KLE Technological University Logo" class="header-logo">
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li class="profile-button">
+                        <img src="../Media/faculty.webp" alt="Profile Picture" class="profile-image">
+                        <div class="profile-details-box">
+                            <h2>John Doe</h2>
+                            <p><strong>Designation:</strong> Course Coordinator</p>
+                            <p><strong>Email:</strong> name1@kle.edu</p>
+                            <p><strong>Phone:</strong> +91-9876543210</p>
+                            <button id="logoutbtn">Logout</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="aradhya.html">Home</a></li>
+                    <li class="active"><a href="#Attendance">Attendance</a></li>
+                    <li><a href="#feedback">Performance</a></li>
+                    <li><a href="index.html">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="divisions">
+            <div class="division overall" data-attendance="90%" data-present="25/30">Overall</div>
+            <div class="division divisionA" data-attendance="85%" data-present="20/25">Division A</div>
+            <div class="division divisionB" data-attendance="92%" data-present="22/24">Division B</div>
+            <div class="division divisionC" data-attendance="88%" data-present="23/26">Division C</div>
+        </section>
+    
+        <section class="graph-and-filter-sort">
+            <div class="graph">
+                <h3>Attendance Graph</h3>
+                <p>[Graph will be displayed here]</p>
+            </div>
+            <div class="filter-sort">
+                <h3>Filter & Sort</h3>
+                <div class="filter-options">
+                    <label for="filterCriteria">Filter By:</label>
+                    <select id="filterCriteria" name="filterCriteria">
+                        <option value="attendance">Attendance</option>
+                        <option value="name">Name</option>
+                        <option value="usn">USN</option>
+                    </select>
+            
+                    <div id="attendanceOptions" class="filter-specific">
+                        <label for="attendanceFilter">Attendance:</label>
+                        <select id="attendanceFilter" name="attendanceFilter">
+                            <option value="all">All</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                        <div id="customAttendanceRange" style="display: none;">
+                            <label for="minAttendance">Min %:</label>
+                            <input type="number" id="minAttendance" min="0" max="100" placeholder="0">
+                            <label for="maxAttendance">Max %:</label>
+                            <input type="number" id="maxAttendance" min="0" max="100" placeholder="100">
+                        </div>
+                    </div>
+            
+                    <div id="nameOptions" class="filter-specific" style="display: none;">
+                        <label for="nameFilter">Name:</label>
+                        <input type="text" id="nameFilter" name="nameFilter" placeholder="Enter name">
+                    </div>
+            
+                    <div id="usnOptions" class="filter-specific" style="display: none;">
+                        <label for="usnStart">USN Start:</label>
+                        <input type="text" id="usnStart" name="usnStart" placeholder="Start USN">
+                        <label for="usnEnd">USN End:</label>
+                        <input type="text" id="usnEnd" name="usnEnd" placeholder="End USN">
+                    </div>
+            
+                    <button class="apply-btn">Apply</button>
+                </div>
+            </div>
+    
+            <section class="student-details">
+                <h3>Student Details</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">USN</th>
+                            <th scope="col">Attendance Percentage</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td Jane Doe</td>
+                            <td>USN001</td>
+                            <td>85%</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>John Smith</td>
+                            <td>USN002</td>
+                            <td>90%</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>Alice Johnson</td>
+                            <td>USN003</td>
+                            <td>75%</td>
+                            <td>Absent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 KLE Technological University. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function calculateAverageAttendance() {
+            const divisions = document.querySelectorAll('.division');
+            let totalAttendance = 0;
+            let totalStudents = 0;
+    
+            divisions.forEach(division => {
+                const attendance = parseFloat(division.getAttribute('data-attendance'));
+                const present = division.getAttribute('data-present').split('/')[0];
+                const total = division.getAttribute('data-present').split('/')[1];
+    
+                totalAttendance += attendance;
+                totalStudents += parseInt(total);
+            });
+    
+            const averageAttendance = (totalAttendance / divisions.length).toFixed(2);
+            document.getElementById('averageResult').innerText = `Average Attendance: ${averageAttendance}%`;
+        }
+    
+        window.onload = function() {
+            calculateAverageAttendance();
+        };
+    
+        document.getElementById('filterCriteria').addEventListener('change', function() {
+            const selectedValue = this.value;
+    
+            document.querySelectorAll('.filter-specific').forEach(option => {
+                option.style.display = 'none';
+            });
+    
+            if (selectedValue === 'attendance') {
+                document.getElementById('attendanceOptions').style.display = 'block';
+            } else if (selectedValue === 'name') {
+                document.getElementById('nameOptions').style.display = 'block';
+            } else if (selectedValue === 'usn') {
+                document.getElementById('usnOptions').style.display = 'block';
+            }
+        });
+    
+        document.getElementById('filterCriteria').dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
