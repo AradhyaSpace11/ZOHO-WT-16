@@ -1,0 +1,177 @@
+/* Header and Navigation */
+.header {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, var(--kle-primary), var(--kle-secondary));
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.header-logo {
+    height: 45px;
+    margin-right: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-right ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-right a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-right .active a {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Profile Section */
+.nav-left {
+    position: relative;
+    margin-left: auto;
+}
+
+.profile-button {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-details-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    min-width: 300px;
+    margin-top: 1rem;
+    z-index: 1000;
+}
+
+.profile-button:hover .profile-details-box {
+    display: block;
+}
+
+.profile-details-box h2 {
+    color: var(--kle-text-dark);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.profile-details-box p {
+    color: var(--kle-text-medium);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+}
+
+.profile-details-box strong {
+    color: var(--kle-primary);
+    font-weight: 600;
+}
+
+#logoutbtn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--kle-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#logoutbtn:hover {
+    background: var(--kle-secondary);
+}
+
+/* Add a subtle arrow to the profile dropdown */
+.profile-details-box::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+/* Color variables needed for the header */
+:root {
+    --kle-primary: #660000;       /* Deep red */
+    --kle-secondary: #990000;     /* Lighter red */
+    --kle-accent: #ff9900;        /* Orange accent */
+    --kle-text-dark: #1a1a1a;     /* Dark text */
+    --kle-text-medium: #333333;   /* Medium gray text */
+    --kle-text-light: #ffffff;    /* White text */
+}
+
+/* Active state for navigation */
+.nav-right ul li.active a {
+    color: #fff;
+    background-color: #a11010;
+    font-weight: bold;
+}
+
+/* Responsive design for header */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    .header-logo {
+        height: 40px;
+    }
+
+    .nav-right ul {
+        gap: 0.5rem;
+    }
+
+    .nav-right a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .profile-details-box {
+        min-width: 250px;
+    }
+}
