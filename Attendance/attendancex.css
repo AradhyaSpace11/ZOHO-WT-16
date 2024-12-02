@@ -254,23 +254,10 @@ nav {
 }
 
 /* Hover Effects */
-.division-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(44, 62, 152, 0.3);
-}
 
-.division-btn:hover::after,
-.division-btn:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-.division-btn:hover::after {
-    bottom: -55px;
-}
-
-.division-btn:hover::before {
-    bottom: -22px;
+.division-btn {
+    /* Keep your existing styles but remove any transition properties if they exist */
+    cursor: pointer;  /* Optional - keep this if you still want to show it's clickable */
 }
 
 /* Active state */
@@ -908,4 +895,25 @@ nav {
 .chart-legend text {
     font-size: 12px !important;
     font-weight: 500 !important;
+}
+
+.division-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.prev-attendance {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.prev-attendance p {
+    margin: 2px 0;
+}
+
+.prev-attendance .date {
+    font-weight: bold;
 }
