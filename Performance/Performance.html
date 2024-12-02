@@ -50,21 +50,12 @@
                     <option value="ISA2">ISA 2</option>
                 </select>
                 <input type="text" placeholder="Search by Student Name" id="student-search">
-                <button class="reset-btn" id="reset-filters">
-                    <i class="fas fa-undo"></i> Reset Filters
-                </button>
+                <button class="reset-btn">Reset Filters</button>
             </div>
-            
             <div class="export-group">
-                <button class="export-btn" data-format="pdf">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-                <button class="export-btn" data-format="csv">
-                    <i class="fas fa-file-csv"></i> CSV
-                </button>
-                <button class="export-btn" data-format="excel">
-                    <i class="fas fa-file-excel"></i> Excel
-                </button>
+                <button class="export-btn">Export PDF</button>
+                <button class="export-btn">Export CSV</button>
+                <button class="export-btn">Export Excel</button>
             </div>
         </section>
 
@@ -88,89 +79,18 @@
             </div>
         </section>
 
-        <!-- 4. Question Analysis Section -->
         <section class="charts-section">
             <div class="chart-container">
-                <h3>Question-wise Analysis</h3>
-                <div class="question-analysis">
-                    <!-- Question 1 -->
-                    <div class="question-item">
-                        <div class="question-header" onclick="toggleScoreDetails('q1-details')">
-                            <h4>Question 1</h4>
-                            <div class="attempt-summary">
-                                <span>Attempted: 85 students</span>
-                                <span>Not Attempted: 15 students</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                        </div>
-                        <div class="score-details" id="q1-details">
-                            <div class="sub-questions">
-                                <div class="sub-question">
-                                    <h5>Question 1(a)</h5>
-                                    <div class="attempt-stats">
-                                        <span>Attempted: 82 students</span>
-                                        <span>Not Attempted: 18 students</span>
-                                    </div>
-                                </div>
-                                <div class="sub-question">
-                                    <h5>Question 1(b)</h5>
-                                    <div class="attempt-stats">
-                                        <span>Attempted: 78 students</span>
-                                        <span>Not Attempted: 22 students</span>
-                                    </div>
-                                </div>
-                                <div class="sub-question">
-                                    <h5>Question 1(c)</h5>
-                                    <div class="attempt-stats">
-                                        <span>Attempted: 75 students</span>
-                                        <span>Not Attempted: 25 students</span>
-                                    </div>
-                                </div>
-                                <div class="sub-question">
-                                    <h5>Question 1(d)</h5>
-                                    <div class="attempt-stats">
-                                        <span>Attempted: 70 students</span>
-                                        <span>Not Attempted: 30 students</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Repeat similar structure for Questions 2 and 3 -->
+                <h3 style="color: white; padding: 10px; border-radius: 5px;">
+                    Answer Pattern
+                </h3>
+                <div class="full-width-box">
+                    <p>This is a full-width box for displaying performance overview or any other content you want to include.</p>
                 </div>
             </div>
         </section>
+        
 
-        <!-- 5. Performance Graphs Section -->
-        <section class="graphs-section">
-            <div class="graph-container">
-                <h3>Division-wise Average Performance</h3>
-                <canvas id="divisionComparisonChart"></canvas>
-            </div>
-            <div class="graph-container">
-                <h3>Score Distribution</h3>
-                <div class="score-ranges">
-                    <div class="range-item">
-                        <span class="range-label">0-5 Marks:</span>
-                        <span class="range-value">15 students</span>
-                    </div>
-                    <div class="range-item">
-                        <span class="range-label">5-10 Marks:</span>
-                        <span class="range-value">25 students</span>
-                    </div>
-                    <div class="range-item">
-                        <span class="range-label">10-15 Marks:</span>
-                        <span class="range-value">35 students</span>
-                    </div>
-                    <div class="range-item">
-                        <span class="range-label">15-20 Marks:</span>
-                        <span class="range-value">25 students</span>
-                    </div>
-                </div>
-                <canvas id="scoreDistribution"></canvas>
-            </div>
-        </section>
 
         <!-- Top and Bottom Performers Section -->
         <section class="performers-section">
@@ -182,63 +102,92 @@
                         <div class="performer-item">
                             <div class="rank">1</div>
                             <div class="student-info">
-                                <span class="student-name">John Smith</span>
+                                <span class="student-name">Alice Johnson</span>
                                 <span class="student-score">19/20</span>
                             </div>
                         </div>
                         <div class="performer-item">
                             <div class="rank">2</div>
                             <div class="student-info">
-                                <span class="student-name">Emma Davis</span>
+                                <span class="student-name">Bob Smith</span>
                                 <span class="student-score">18.5/20</span>
                             </div>
                         </div>
-                        <!-- Add more top performers similarly -->
+                        <div class="performer-item">
+                            <div class="rank">3</div>
+                            <div class="student-info">
+                                <span class="student-name">Charlie Brown</span>
+                                <span class="student-score">18/20</span>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">4</div>
+                            <div class="student-info">
+                                <span class="student-name">Daisy Lee</span>
+                                <span class="student-score">17.5/20</span>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">5</div>
+                            <div class="student-info">
+                                <span class="student-name">Evan Green</span>
+                                <span class="student-score">17/20</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Bottom Performers -->
                 <div class="performers-card bottom-performers">
-                    <h3>Needs Improvement</h3>
+                    <h3>Bottom 5 Performers</h3>
                     <div class="performers-list">
                         <div class="performer-item">
                             <div class="rank">1</div>
                             <div class="student-info">
-                                <div class="student-primary">
-                                    <span class="student-name">Alex Johnson</span>
-                                    <span class="student-score">8/20</span>
-                                </div>
-                                <div class="student-details">
-                                    <span class="student-usn">1KE20CS045</span>
-                                    <span class="student-division">Division C</span>
-                                </div>
+                                <span class="student-name">Zara Khan</span>
+                                <span class="student-score">8/20</span>
                             </div>
                         </div>
                         <div class="performer-item">
                             <div class="rank">2</div>
                             <div class="student-info">
-                                <div class="student-primary">
-                                    <span class="student-name">Sarah Wilson</span>
-                                    <span class="student-score">8.5/20</span>
-                                </div>
-                                <div class="student-details">
-                                    <span class="student-usn">1KE20CS032</span>
-                                    <span class="student-division">Division A</span>
-                                </div>
+                                <span class="student-name">Yusuf Ali</span>
+                                <span class="student-score">8.5/20</span>
                             </div>
                         </div>
-                        <!-- Add more bottom performers similarly -->
+                        <div class="performer-item">
+                            <div class="rank">3</div>
+                            <div class="student-info">
+                                <span class="student-name">Xander Blake</span>
+                                <span class="student-score">9/20</span>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">4</div>
+                            <div class="student-info">
+                                <span class="student-name">Willow Scott</span>
+                                <span class="student-score">9.5/20</span>
+                            </div>
+                        </div>
+                        <div class="performer-item">
+                            <div class="rank">5</div>
+                            <div class="student-info">
+                                <span class="student-name">Violet King</span>
+                                <span class="student-score">10/20</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    
+
 </body>
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-logo">
-            <img src="../Media/logo.png" alt="KLE Tech Logo">
-        </div>
+        
         
         <div class="footer-info">
             <h3>KLE Technological University</h3>
