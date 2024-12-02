@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-/* Body Styling */
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #f1e8e8;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: #722121;
-}
-
-/* Style for the background video */
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-/* Header */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #000000;
-    height: auto;
-=======
 /* Add these at the top of your CSS file */
 body {
     background-color: var(--kle-bg-light);
@@ -41,17 +10,17 @@ body {
 
 /* Update the color variables for better contrast */
 :root {
-    --kle-primary: #660000;       /* Deep red */
-    --kle-secondary: #990000;     /* Lighter red */
-    --kle-accent: #ff9900;        /* Orange accent */
-    --kle-text-dark: #1a1a1a;     /* Dark text */
-    --kle-text-medium: #333333;   /* Medium gray text */
-    --kle-text-light: #ffffff;    /* White text */
-    --kle-gray: #f5f5f5;          /* Light gray */
-    --kle-border: #e0e0e0;        /* Light border */
-    --kle-bg-light: #f8fafc;      /* Light background */
-    --kle-bg-container: #ffffff;  /* White container */
-    --kle-bg-hover: #f0f7ff;      /* Light blue hover */
+    --kle-primary: #003366;      /* KLE's deep blue */
+    --kle-secondary: #004d99;    /* Lighter blue */
+    --kle-accent: #ff9900;       /* Orange accent */
+    --kle-text-dark: #1a1a1a;    /* Almost black for main text */
+    --kle-text-medium: #333333;  /* Dark gray for secondary text */
+    --kle-text-light: #ffffff;   /* White text */
+    --kle-gray: #f5f5f5;
+    --kle-border: #e0e0e0;
+    --kle-bg-light: #f8fafc;     /* Very light blue-gray for main background */
+    --kle-bg-container: #ffffff; /* White for containers */
+    --kle-bg-hover: #f0f7ff;    /* Light blue for hover states */
 }
 
 /* Header and Navigation */
@@ -62,18 +31,18 @@ body {
     padding: 0.75rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
->>>>>>> 77c56190233bf09f522e9e671a3c3a3b8e3e6c5d
 }
 
-/* Logo Styling */
 .header-logo {
     height: 45px;
+    width: auto;
     margin-right: 1rem;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -93,6 +62,7 @@ nav {
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-right a:hover {
@@ -106,7 +76,7 @@ nav {
 /* Profile Section */
 .nav-left {
     position: relative;
-    margin-left: auto;
+    margin-left: auto; /* Push profile to the right */
 }
 
 .profile-button {
@@ -286,7 +256,7 @@ nav {
 /* Hover Effects */
 .division-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(152, 44, 44, 0.3);
+    box-shadow: 0 5px 15px rgba(44, 62, 152, 0.3);
 }
 
 .division-btn:hover::after,
@@ -306,7 +276,7 @@ nav {
 /* Active state */
 .division-btn:active {
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(152, 44, 44, 0.2);
+    box-shadow: 0 2px 8px rgba(44, 62, 152, 0.2);
 }
 
 /* Responsive Design */
@@ -581,7 +551,7 @@ nav {
 
 .filter-button:not(.reset):hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 0, 0, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.25);
 }
 
 .filter-button.reset:hover {
@@ -848,8 +818,8 @@ nav {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --kle-primary: #610808;
-        --kle-secondary: #891010;
+        --kle-primary: #002347;
+        --kle-secondary: #003366;
         --kle-gray: #1a1a1a;
         --kle-text-dark: #ffffff;
         --kle-text-medium: #e0e0e0;
@@ -939,234 +909,3 @@ nav {
     font-size: 12px !important;
     font-weight: 500 !important;
 }
-
-/* Header Text Styling */
-.header-text {
-    flex-grow: 1; /* Take up remaining space */
-    text-align: center;
-    margin-left: 5px; /* Push the text to the right to avoid overlap with the logo */
-    font-size: 2.0rem; /* Make the text larger */
-    font-weight: 550; /* Make the text bold */
-    text-transform: capitalize; /* Keep text in uppercase */
-    letter-spacing: 1.5px; /* Add spacing between letters */
-}
-
-/* Navigation Bar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    background-color: rgb(0, 0, 0);
-    border-radius: 150px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 5px;
-    display: flex;
-    align-items: center;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-weight: 600;
-    border-radius: 125px;
-    background-color: transparent;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-nav ul li.active a {
-    background-color: white;
-    color: red;
-}
-
-/* General Section Styling */
-.divisions {
-    display: flex;
-    justify-content: space-between; /* Align buttons horizontally */
-    gap: 20px; /* Space between the buttons */
-    padding: 15px; /* Increased padding for more space around buttons */
-}
-
-/* Button Styling for Divisions */
-.divisions div {
-    padding: 30px 140px; /* Increased padding to make buttons wider */
-    background-color: #021303; /* Green background color */
-    color: white;
-    text-align: center;
-    font-size: 1rem; /* Larger font size for text */
-    font-weight: bold;
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Makes it look clickable */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly larger shadow */
-    width: auto; /* Width adjusts according to content */
-}
-
-/* Hover Effect for Divisions */
-.divisions div:hover {
-    background-color: #111711; /* Darker green on hover */
-    transform: scale(1.1); /* Larger scale on hover */
-}
-
-/* Active Effect (on click) */
-.divisions div:active {
-    background-color: #0c0f0c; /* Even darker green on click */
-    transform: scale(0.95); /* Slightly shrinks the button */
-}
-
-/* Profile Button Styling */
-.profile-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    margin: auto;
-    margin-right: -30px;
-    top: -3px;
-    left: -7px;
-}
-
-.profile-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: width 0.7s ease, height 0.7s ease;
-    border: 3px solid rgb(252, 7, 7);
-    margin: auto;
-}
-
-.profile-button:hover .profile-image {
-    width: 95px;
-    height: 95px;
-    border: 3px solid rgb(255, 0, 0);
-}
-
-.profile-details-box {
-    display: none;
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    border: 1px solid #000000;
-    padding: 10px;
-    z-index: 1;
-    top: 100px;
-    left: -20px;
-    width: 200px;
-    border-radius: 15px;
-}
-
-.profile-button:hover .profile-details-box {
-    display: block;
-}
-
-/* Logout Button Styling */
-#logoutbtn {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-weight: 600;
-    border-radius: 125px;
-    background-color: rgb(102, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Attendance Hover Effect */
-.attendance-box {
-    position: relative;
-    display: inline-block;
-    background-color: #444;
-    padding: 20px;
-    font-size: 1rem;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.attendance-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-    color: white;
-    display: none; /* Hidden by default */
-    text-align: center;
-    line-height: 60px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-}
-
-.attendance-box:hover .attendance-info {
-    display: block; /* Show on hover */
-}
-
-.graphandfiltersort {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .graph {
-    width: 70%; /* Adjust width as needed */
-    height: 400px; /* Set a fixed height for the graph box */
-    background-color: #021303; /* Light gray background */
-    border: 1px solid #000000; /* Subtle border */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .filtersort {
-    width: 30%; /* Adjust width as needed */
-    background-color: #021303; /* White background for filters and sort */
-    border: 1px solid #000000; /* Border matching the graph */
-    border-radius: 12px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
-    padding: 15px;
-  }
-  
