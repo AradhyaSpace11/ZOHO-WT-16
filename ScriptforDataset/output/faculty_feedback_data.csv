@@ -1,0 +1,35 @@
+faculty_id,faculty_name,course_code,date_generated,avg_attendance,avg_performance,students_below_threshold,feedback_message
+F001,Dr. Smith,CS101,2024-12-03,44.72,23.25,570,"Class Overview:
+- Average attendance: 44.72%
+- Average performance: 23.25/50
+- Students below threshold: 570
+Attention needed on attendance improvement.
+Performance improvement strategies recommended.
+"
+F002,Dr. Johnson,CS101,2024-12-03,46.74,25.5,180,"Class Overview:
+- Average attendance: 46.74%
+- Average performance: 25.5/50
+- Students below threshold: 180
+Attention needed on attendance improvement.
+"
+F003,Dr. Williams,CS101,2024-12-03,42.06,23.2,240,"Class Overview:
+- Average attendance: 42.06%
+- Average performance: 23.2/50
+- Students below threshold: 240
+Attention needed on attendance improvement.
+Performance improvement strategies recommended.
+"
+F004,Dr. Brown,CS101,2024-12-03,43.92,23.67,450,"Class Overview:
+- Average attendance: 43.92%
+- Average performance: 23.67/50
+- Students below threshold: 450
+Attention needed on attendance improvement.
+Performance improvement strategies recommended.
+"
+F005,Dr. Davis,CS101,2024-12-03,44.95,24.33,210,"Class Overview:
+- Average attendance: 44.95%
+- Average performance: 24.33/50
+- Students below threshold: 210
+Attention needed on attendance improvement.
+Performance improvement strategies recommended.
+"
