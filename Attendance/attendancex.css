@@ -252,16 +252,29 @@ nav {
 }
 
 /* Hover Effects */
+.division-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(152, 44, 44, 0.3);
+}
 
-.division-btn {
-    /* Keep your existing styles but remove any transition properties if they exist */
-    cursor: pointer;  /* Optional - keep this if you still want to show it's clickable */
+.division-btn:hover::after,
+.division-btn:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.division-btn:hover::after {
+    bottom: -55px;
+}
+
+.division-btn:hover::before {
+    bottom: -22px;
 }
 
 /* Active state */
 .division-btn:active {
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(44, 62, 152, 0.2);
+    box-shadow: 0 2px 8px rgba(152, 44, 44, 0.2);
 }
 
 /* Responsive Design */
