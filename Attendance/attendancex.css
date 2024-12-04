@@ -35,14 +35,12 @@ body {
 
 .header-logo {
     height: 45px;
-    width: auto;
     margin-right: 1rem;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
 }
 
@@ -62,7 +60,6 @@ nav {
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
     transition: all 0.3s ease;
-    white-space: nowrap;
 }
 
 .nav-right a:hover {
@@ -76,7 +73,7 @@ nav {
 /* Profile Section */
 .nav-left {
     position: relative;
-    margin-left: auto; /* Push profile to the right */
+    margin-left: auto;
 }
 
 .profile-button {
@@ -186,6 +183,7 @@ nav {
         min-width: 250px;
     }
 }
+
 
 /* Division Buttons with Tooltip */
 .divisions {
