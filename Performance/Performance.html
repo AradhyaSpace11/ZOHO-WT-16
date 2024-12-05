@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Performance Dashboard</title>
     <link rel="stylesheet" href="performance.css">
-    <!-- Add Chart.js for visualizations -->
+    <!-- Add Chart.js and PapaParse -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -43,6 +44,7 @@
                     <option value="all" selected>Overall Performance</option>
                     <option value="A">Division A</option>
                     <option value="B">Division B</option>
+                    <option value="C">Division C</option>
                 </select>
                 <select id="exam-select">
                     <option value="all" selected>All Exams</option>
@@ -88,47 +90,204 @@
                 <div class="question-analysis">
                     <!-- Question 1 -->
                     <div class="question-item">
-                        <div class="question-header" onclick="toggleScoreDetails('q1-details', 'Question 1')">
+                        <div class="question-header" onclick="toggleScoreDetails('q1-details')">
                             <h4>Question 1</h4>
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="attempted" style="width: 85%;">
+                                        <span class="progress-text">Attempted (85%)</span>
+                                    </div>
+                                    <div class="not-attempted" style="width: 15%;">
+                                        <span class="progress-text">Not Attempted (15%)</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="attempt-summary">
                                 <span>Overall: Attempted: 85 | Not Attempted: 15</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="score-details" id="q1-details">
-                            <!-- Sub-question data will be displayed dynamically -->
+                        <div class="score-details" id="q1-details" style="display: none;">
+                            <div class="sub-questions">
+                                <div class="sub-question">
+                                    <h5>Part (a)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 70%;">
+                                            <span>70% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 20%;">
+                                            <span>20% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 10%;">
+                                            <span>10% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (b) -->
+                                <div class="sub-question">
+                                    <h5>Part (b)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 60%;">
+                                            <span>60% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 25%;">
+                                            <span>25% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 15%;">
+                                            <span>15% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (c) -->
+                                <div class="sub-question">
+                                    <h5>Part (c)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 50%;">
+                                            <span>50% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 30%;">
+                                            <span>30% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 20%;">
+                                            <span>20% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Question 2 -->
                     <div class="question-item">
-                        <div class="question-header" onclick="toggleScoreDetails('q2-details', 'Question 2')">
+                        <div class="question-header" onclick="toggleScoreDetails('q2-details')">
                             <h4>Question 2</h4>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 80%;">
+                                    <span class="progress-text">80% Attempted</span>
+                                </div>
+                            </div>
                             <div class="attempt-summary">
                                 <span>Overall: Attempted: 80 | Not Attempted: 20</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="score-details" id="q2-details">
-                            <!-- Sub-question data will be displayed dynamically -->
+                        <div class="score-details" id="q2-details" style="display: none;">
+                            <div class="sub-questions">
+                                <div class="sub-question">
+                                    <h5>Part (a)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 60%;">
+                                            <span>60% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 25%;">
+                                            <span>25% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 15%;">
+                                            <span>15% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (b) -->
+                                <div class="sub-question">
+                                    <h5>Part (b)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 65%;">
+                                            <span>65% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 20%;">
+                                            <span>20% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 15%;">
+                                            <span>15% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (c) -->
+                                <div class="sub-question">
+                                    <h5>Part (c)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 55%;">
+                                            <span>55% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 25%;">
+                                            <span>25% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 20%;">
+                                            <span>20% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Question 3 -->
                     <div class="question-item">
-                        <div class="question-header" onclick="toggleScoreDetails('q3-details', 'Question 3')">
+                        <div class="question-header" onclick="toggleScoreDetails('q3-details')">
                             <h4>Question 3</h4>
+                            <div class="progress-container">
+                                <div class="progress-bar" style="width: 70%;">
+                                    <span class="progress-text">70% Attempted</span>
+                                </div>
+                            </div>
                             <div class="attempt-summary">
                                 <span>Overall: Attempted: 70 | Not Attempted: 30</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="score-details" id="q3-details">
-                            <!-- Sub-question data will be displayed dynamically -->
+                        <div class="score-details" id="q3-details" style="display: none;">
+                            <div class="sub-questions">
+                                <div class="sub-question">
+                                    <h5>Part (a)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 55%;">
+                                            <span>55% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 30%;">
+                                            <span>30% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 15%;">
+                                            <span>15% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (b) -->
+                                <div class="sub-question">
+                                    <h5>Part (b)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 60%;">
+                                            <span>60% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 25%;">
+                                            <span>25% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 15%;">
+                                            <span>15% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Part (c) -->
+                                <div class="sub-question">
+                                    <h5>Part (c)</h5>
+                                    <div class="sub-progress">
+                                        <div class="sub-progress-bar correct" style="width: 50%;">
+                                            <span>50% Correct</span>
+                                        </div>
+                                        <div class="sub-progress-bar partial" style="width: 30%;">
+                                            <span>30% Partial</span>
+                                        </div>
+                                        <div class="sub-progress-bar incorrect" style="width: 20%;">
+                                            <span>20% Incorrect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
         
                 <!-- Section to display chart -->
-                <div id="chart-container" style="margin-top: 50px;"></div>
+                <div id="chart-container" style="margin-top: 50px;">
+                    <canvas id="scoreDistributionChart"></canvas>
+                </div>
             </div>
         </section>
         

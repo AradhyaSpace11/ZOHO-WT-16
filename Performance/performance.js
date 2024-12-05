@@ -48,3 +48,95 @@ function toggleScoreDetails(id) {
         }
     }
 }
+
+// Score distribution chart
+function createScoreDistributionChart() {
+    const ctx = document.getElementById('scoreDistributionChart').getContext('2d');
+    
+    const data = {
+        labels: ['0-5', '5-10', '10-15', '15-20'],
+        datasets: [
+            {
+                label: 'Question 1',
+                data: [5, 15, 45, 35], // Example data: number of students in each range
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Question 2',
+                data: [8, 20, 42, 30], // Example data: number of students in each range
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Question 3',
+                data: [10, 25, 40, 25], // Example data: number of students in each range
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }
+        ]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: 'white' // Make legend text white
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Score Distribution by Question',
+                    color: 'white', // Make title text white
+                    font: {
+                        size: 16
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Students',
+                        color: 'white' // Make y-axis title white
+                    },
+                    ticks: {
+                        color: 'white' // Make y-axis labels white
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)' // Make grid lines slightly visible
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Score Ranges',
+                        color: 'white' // Make x-axis title white
+                    },
+                    ticks: {
+                        color: 'white' // Make x-axis labels white
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)' // Make grid lines slightly visible
+                    }
+                }
+            }
+        }
+    };
+
+    new Chart(ctx, config);
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    createScoreDistributionChart();
+});
