@@ -82,13 +82,56 @@
         <section class="charts-section">
             <div class="chart-container">
                 <h3 style="color: white; padding: 10px; border-radius: 5px;">
-                    Answer Pattern
+                    Question-wise Scoring Pattern
                 </h3>
-                <div class="full-width-box">
-                    <p>This is a full-width box for displaying performance overview or any other content you want to include.</p>
+        
+                <div class="question-analysis">
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <div class="question-header" onclick="toggleScoreDetails('q1-details', 'Question 1')">
+                            <h4>Question 1</h4>
+                            <div class="attempt-summary">
+                                <span>Overall: Attempted: 85 | Not Attempted: 15</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="score-details" id="q1-details">
+                            <!-- Sub-question data will be displayed dynamically -->
+                        </div>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <div class="question-header" onclick="toggleScoreDetails('q2-details', 'Question 2')">
+                            <h4>Question 2</h4>
+                            <div class="attempt-summary">
+                                <span>Overall: Attempted: 80 | Not Attempted: 20</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="score-details" id="q2-details">
+                            <!-- Sub-question data will be displayed dynamically -->
+                        </div>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="question-item">
+                        <div class="question-header" onclick="toggleScoreDetails('q3-details', 'Question 3')">
+                            <h4>Question 3</h4>
+                            <div class="attempt-summary">
+                                <span>Overall: Attempted: 70 | Not Attempted: 30</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="score-details" id="q3-details">
+                            <!-- Sub-question data will be displayed dynamically -->
+                        </div>
+                    </div>
                 </div>
+        
+                <!-- Section to display chart -->
+                <div id="chart-container" style="margin-top: 50px;"></div>
             </div>
         </section>
+        
         
 
 
@@ -230,4 +273,6 @@
         <p>&copy; 2024 KLE Technological University. All rights reserved.</p>
     </div>
 </footer>
+
+<script src="performance.js"></script>
 </html>
